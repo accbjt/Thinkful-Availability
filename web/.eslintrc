@@ -14,7 +14,8 @@
     "plugin:prettier/recommended"
   ],
   globals: {
-    "fetch": true
+    "fetch": true,
+    "document": true
   },
   "rules": {
     "prettier/prettier": ["error", {
