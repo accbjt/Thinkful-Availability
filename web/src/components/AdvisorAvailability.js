@@ -1,6 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 
+import AppointmentContainer from '../containers/AppointmentContainer';
+
 const AdvisorAvailability = props => {
   const { availabilities } = props;
 
@@ -13,7 +15,7 @@ const AdvisorAvailability = props => {
         </tr>
       </thead>
       <tbody>
-        {Object.keys(availabilities).map(advisorId => {
+        {availabilities && Object.keys(availabilities).map(advisorId => {
           const times = availabilities[advisorId];
 
           return (
@@ -23,17 +25,11 @@ const AdvisorAvailability = props => {
                 <ul className="list-unstyled">
                   {times.sort().map(time => {
                     return (
-                      <li key={time}>
-                        <time dateTime={time} className="book-time">
-                          {moment(time).format('MM/DD/YYYY h:mm a')}
-                        </time>
-                        <button
-                          className="book btn-small btn-primary"
-                          type="submit"
-                        >
-                          Book
-                        </button>
-                      </li>
+                      <AppointmentContainer
+                        key={time}
+                        time={time}
+                        advisorId={advisorId}
+                      />
                     );
                   })}
                 </ul>

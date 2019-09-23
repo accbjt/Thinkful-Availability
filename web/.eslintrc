@@ -15,13 +15,14 @@
   ],
   globals: {
     "fetch": true,
-    "document": true
+    "document": true,
+    "window": true
   },
   "rules": {
     "prettier/prettier": ["error", {
       "singleQuote": true,
       "parser": "flow",
-      "trailingComma": 'es5'
+      "trailingComma": 'all'
     }],
     "max-len": [2, 120, 2, { "ignoreUrls": true }],
     "react/jsx-space-before-closing": [0, "always"],

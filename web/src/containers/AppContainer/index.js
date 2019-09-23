@@ -1,16 +1,25 @@
 import { connect } from 'react-redux';
-import { fetchAvailabilities } from '../AdvisorAvailabilityContainer/actions';
+import {
+  getAvailabilities,
+  getToday,
+} from '../AdvisorAvailabilityContainer/actions';
+import { getAppointments } from '../AppointmentContainer/actions';
 import App from '../../App';
 
-const mapStateToProps = ({ availabilities }) => ({
-  availabilities,
+const mapStateToProps = ({ availabilities, appointments }) => ({
+  today: availabilities.today,
+  appointments,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAvailabilities: () => dispatch(fetchAvailabilities()),
+  fetchAvailabilities: () => {
+    dispatch(getAvailabilities());
+    dispatch(getToday());
+    dispatch(getAppointments());
+  },
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(App);
