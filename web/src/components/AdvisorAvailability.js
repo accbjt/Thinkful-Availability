@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import AppointmentContainer from '../containers/AppointmentContainer';
 
@@ -15,31 +15,40 @@ const AdvisorAvailability = props => {
         </tr>
       </thead>
       <tbody>
-        {availabilities && Object.keys(availabilities).map(advisorId => {
-          const times = availabilities[advisorId];
+        {availabilities &&
+          Object.keys(availabilities).map(advisorId => {
+            const times = availabilities[advisorId];
 
-          return (
-            <tr key={advisorId}>
-              <td>{advisorId}</td>
-              <td>
-                <ul className="list-unstyled">
-                  {times.sort().map(time => {
-                    return (
-                      <AppointmentContainer
-                        key={time}
-                        time={time}
-                        advisorId={advisorId}
-                      />
-                    );
-                  })}
-                </ul>
-              </td>
-            </tr>
-          );
-        })}
+            return (
+              <tr key={advisorId}>
+                <td>{advisorId}</td>
+                <td>
+                  <ul className="list-unstyled">
+                    {times.sort().map(time => {
+                      return (
+                        <AppointmentContainer
+                          key={time}
+                          time={time}
+                          advisorId={advisorId}
+                        />
+                      );
+                    })}
+                  </ul>
+                </td>
+              </tr>
+            );
+          })}
       </tbody>
     </table>
   );
+};
+
+AdvisorAvailability.propTypes = {
+  availabilities: PropTypes.object,
+};
+
+AdvisorAvailability.defaultProps = {
+  availabilities: {},
 };
 
 export default AdvisorAvailability;

@@ -1,6 +1,6 @@
 import { ADD_BOOKED_APPOINTMENT, ADD_APPOINTMENTS } from './constants';
 import { REMOVE_AVAILABILITY } from '../AdvisorAvailabilityContainer/constants';
-import { CLEAR_NAME, SHOW_ERROR } from '../NameFormContainer/constants';
+import { SHOW_ERROR } from '../NameFormContainer/constants';
 
 const scrollToBottom = () => {
   window.scrollTo({
@@ -56,7 +56,6 @@ export const postAppointment = appointment => {
         const json = await res.json();
 
         dispatch(addBookedAppointment(json));
-        dispatch({ type: CLEAR_NAME });
         dispatch({ type: REMOVE_AVAILABILITY, availability: json });
 
         scrollToBottom();

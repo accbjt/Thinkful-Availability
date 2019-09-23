@@ -2,9 +2,7 @@ import { connect } from 'react-redux';
 
 import AdvisorAvailability from '../../components/AdvisorAvailability';
 
-const mapStateToProps = (state) => {
-  const { availabilities } = state;
-
+const mapStateToProps = ({ availabilities }) => {
   return {
     availabilities: availabilities.advisorTimes,
   };

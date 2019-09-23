@@ -1,4 +1,4 @@
-import { ADD_NAME, CLEAR_NAME, SHOW_ERROR } from './constants';
+import { ADD_NAME, SHOW_ERROR } from './constants';
 
 const initialState = {
   text: '',
@@ -10,8 +10,6 @@ const NameFormReducer = (state = initialState, action) => {
       return { text: action.name };
     case SHOW_ERROR:
       return { ...state, error: true };
-    case CLEAR_NAME:
-      return { text: '' };
     default:
       return state;
   }

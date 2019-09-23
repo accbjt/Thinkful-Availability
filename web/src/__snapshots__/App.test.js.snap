@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<li
+  key="2019-08-24T10:30:00-04:00"
+>
+  <time
+    className="book-time"
+    dateTime="2019-08-24T10:30:00-04:00"
+  >
+    08/24/2019 7:30 am
+  </time>
+  <button
+    className="book btn-small btn-primary m-4"
+    onClick={[Function]}
+    type="submit"
+  >
+    Book
+  </button>
+</li>
+`;

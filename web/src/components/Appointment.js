@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 
 const Appointment = props => {
@@ -18,6 +19,12 @@ const Appointment = props => {
       </button>
     </li>
   );
+};
+
+Appointment.propTypes = {
+  time: PropTypes.string.isRequired,
+  advisorId: PropTypes.string.isRequired,
+  bookAppointment: PropTypes.func.isRequired,
 };
 
 export default Appointment;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const NameForm = props => {
   const { addName, name } = props;
@@ -19,6 +20,11 @@ const NameForm = props => {
       {name.error && <div>Please fill in a name</div>}
     </form>
   );
+};
+
+NameForm.propTypes = {
+  addName: PropTypes.func.isRequired,
+  name: PropTypes.object.isRequired,
 };
 
 export default NameForm;
